@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 
 interface TicketTableProps {
   tickets: Ticket[];
+  initialSearch?: string;
 }
 
 const categoryOptions = [
@@ -41,8 +42,8 @@ const statusOptions = [
   { value: "Reopened", label: "Reopened" },
 ];
 
-export function TicketTable({ tickets }: TicketTableProps) {
-  const [search, setSearch] = useState("");
+export function TicketTable({ tickets, initialSearch = "" }: TicketTableProps) {
+  const [search, setSearch] = useState(initialSearch);
   const [categoryFilter, setCategoryFilter] = useState("");
   const [priorityFilter, setPriorityFilter] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
